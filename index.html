@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Shelfish by misterbristles</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Shelfish</h1>
+        <h2>My final project for RLC</h2>
+        <a href="https://github.com/misterbristles/Shelfish" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h3>
+<a id="welcome-to-shelfish" class="anchor" href="#welcome-to-shelfish" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to Shelfish.</h3>
+
+<p>Shelfish is a database driven application that enables the management of a real-world multimedia library. The purpose of the program is to provide enough flexibility to work with any form of media used in today’s modern library system, from books and microfiches of old to the digital video and crafting supplies provided by today’s modern library.</p>
+
+<h3>
+<a id="faq" class="anchor" href="#faq" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FAQ</h3>
+
+<ul>
+<li>Who is Shelfish for?
+
+<ul>
+<li>Shelfish is primarily meant for public libraries, or any sort of organization that loans media to patrons. </li>
+</ul>
+</li>
+<li>Why should I use Shelfish?
+
+<ul>
+<li>Shelfish does away with a lot of the convoluted mess that library systems have become. In other systems, it's not uncommon to see something like "Johnathan Grisham" followed by "John Grisham" followed by "John Grisham(1955-Current)" all listed as separate authors, leading to unnecessary bloat in the database. The reason for this is that most library systems in place don't actually normalize their databases, they just abuse the heck out of the "distinct" command in SQL. Shelfish's primary advantage is that the database is normalized to a ridiculous extent, to avoid this problem. In addition, other library databases will often have two separate entries for the same person if said person was both an author and director, or any other creative role. Shelfish avoids this by keeping separate tables for creators and their roles. In Shelfish, all works made, inspired by, or involving Stephen King will be directly linked to the Stephen King entry. </li>
+</ul>
+</li>
+<li>How do I install Shelfish?
+
+<ul>
+<li>The Shelfish download includes the entire website, ready for use. If you wish to use a specific SQL server instead of the database provided, you can find the scripts necessary to recreate the database from scratch in the Technical Documentation zip file, located in the Documentation folder. </li>
+</ul>
+</li>
+<li>Why does Visual Studio 2010 say this project isn't compatible with Visual Studio 2010?
+
+<ul>
+<li>This is an odd glitch, not with Shelfish, but with Visual Studio 2010. Shelfish uses version 4.5 of the ASP.Net framework (for some field level validation), and by default, Visual Studio 2010 claims to be incompatible with anything past version 4.0. However, this is demonstrably false, as updates to Visual Studio 2010 have rendered it fully compatible up to version 4.5. For some reason, depending on what directory on your computer you have placed Shelfish, it will sometimes load the project and sometimes won't. The easiest fix for this bug is to edit the line <code>&lt;compilation debug="true" strict="false" explicit="true" targetFramework="4.5"&gt;</code> and change <code>targetFramework</code> to 4.0. Upon loading the project into Visual Studio, change the line back to 4.5. </li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>This project was created entirely by <a href="https://github.com/misterbristles" class="user-mention">@misterbristles</a>, aka Joseph Clinton. </p>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Contact me at <a href="mailto:clintonj1015@warriormail.rlc.edu">clintonj1015@warriormail.rlc.edu</a> if you have any issues with the program. </p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/misterbristles/Shelfish/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/misterbristles/Shelfish/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/misterbristles/Shelfish"></a> is maintained by <a href="https://github.com/misterbristles">misterbristles</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
