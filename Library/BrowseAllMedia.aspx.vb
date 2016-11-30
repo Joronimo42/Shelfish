@@ -2,6 +2,10 @@
 Partial Class Library_BrowseMedia
     Inherits System.Web.UI.Page
 
+    'all fairly straightforward, uses the basic controls of the gridview control to access the list of media.
+    'Shows buttons whenever a row is selected, hides them otherwise. 
+
+
     Protected Sub AddButton_Click(sender As Object, e As System.EventArgs) Handles AddButton.Click
         Response.Redirect("~/Library/Media/AddMedia.aspx")
     End Sub
@@ -19,11 +23,6 @@ Partial Class Library_BrowseMedia
         Response.Redirect("~/Library/Checkout.aspx?MediaID=" & GridView1.SelectedDataKey.Item("MediaID").ToString)
     End Sub
 
-    Protected Sub DeleteButton_Click(sender As Object, e As System.EventArgs) Handles DeleteButton.Click
-        MediaDataSource.Delete()
-    End Sub
 
-    Protected Sub MediaDataSource_Deleting(sender As Object, e As System.Web.UI.WebControls.SqlDataSourceCommandEventArgs) Handles MediaDataSource.Deleting
-        e.Command.Parameters("@MediaID").Value = GridView1.SelectedDataKey.Item("MediaID")
-    End Sub
+
 End Class

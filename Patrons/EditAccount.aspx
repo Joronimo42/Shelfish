@@ -1,29 +1,33 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.master" AutoEventWireup="false" CodeFile="EditAccount.aspx.vb" Inherits="Patrons_EditAccount" %>
+﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.master" AutoEventWireup="false"
+    CodeFile="EditAccount.aspx.vb" Inherits="Patrons_EditAccount" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <asp:Label ID="SavedLabel" runat="server" Font-Bold="True" Font-Size="Large" 
-        Text="Profile Saved." Visible="False"></asp:Label>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
+    <asp:Label ID="SavedLabel" runat="server" Font-Bold="True" Font-Size="Large" Text="Profile Saved."
+        Visible="False"></asp:Label>
     <br />
     <table>
         <tr>
             <td align="right" class="style1">
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
                 <asp:Label ID="LibraryNameLabel" runat="server" Text="LibraryName"></asp:Label>
             </td>
         </tr>
         <tr>
             <td align="right" class="style1">
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
                 <asp:Label ID="NameLabel" runat="server" Text="Name"></asp:Label>
             </td>
         </tr>
         <tr>
             <td align="right" class="style1">
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
                 <asp:Label ID="CardNumberLabel" runat="server" Text="CardNumber"></asp:Label>
             </td>
@@ -86,11 +90,10 @@
         </tr>
         <tr>
             <td align="right" class="style1">
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-                    ConnectionString="<%$ ConnectionStrings:ApplicationServices %>" 
-                    
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ApplicationServices %>"
                     SelectCommand="SELECT LibraryID, LibraryCard FROM LinkLibraryPatron WHERE (PatronID = @PatronID)">
                     <SelectParameters>
                         <asp:Parameter Name="PatronID" />
@@ -100,11 +103,11 @@
         </tr>
         <tr>
             <td align="right" class="style1">
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
                 <asp:Button ID="SaveButton" runat="server" Text="Save" />
             </td>
         </tr>
     </table>
 </asp:Content>
-

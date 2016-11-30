@@ -4,10 +4,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
-    
-    <asp:Label ID="TitleLabel" runat="server" Font-Size="X-Large" 
-        Text="Browse My Library" Font-Bold="True"></asp:Label>
-    
+    <asp:Label ID="TitleLabel" runat="server" Font-Size="X-Large" Text="Browse My Library"
+        Font-Bold="True"></asp:Label>
     <br />
     <asp:SqlDataSource ID="MediaDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ApplicationServices %>"
         DeleteCommand="DELETE FROM [Media] WHERE [MediaID] = @MediaID" InsertCommand="INSERT INTO [Media] ([ISBN], [FormatID], [Title], [Description]) VALUES (@ISBN, @FormatID, @Title, @Description)"
@@ -34,9 +32,8 @@
         </UpdateParameters>
     </asp:SqlDataSource>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
-        AutoGenerateColumns="False" DataKeyNames="MediaID" 
-        DataSourceID="MediaDataSource" CellPadding="4" ForeColor="#333333" 
-        GridLines="None">
+        AutoGenerateColumns="False" DataKeyNames="MediaID" DataSourceID="MediaDataSource"
+        CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:CommandField ShowSelectButton="True" />

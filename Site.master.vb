@@ -1,6 +1,8 @@
 ﻿
 Partial Class Site
     Inherits System.Web.UI.MasterPage
+
+    'This checks the role of the user and customizes the menu to fit their needs. 
     Protected Sub Page_PreRender(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.PreRender
         If (Page.User.Identity.IsAuthenticated = True) Then
             If Page.User.IsInRole("Librarian") Then
@@ -63,19 +65,9 @@ Partial Class Site
 
                 Dim AddLibrary As New MenuItem
 
-
-
-
-
                 AddLibrary.Text = "Add Library"
                 AddLibrary.NavigateUrl = "~/Account/Admin/AddLibrary.aspx"
-
-
-
                 NavigationMenu.Items.Add(AddLibrary)
-
-
-
             End If
         End If
     End Sub

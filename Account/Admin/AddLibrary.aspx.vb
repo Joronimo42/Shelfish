@@ -2,6 +2,12 @@
 Partial Class Account_AddLibrary
     Inherits System.Web.UI.Page
 
+
+
+    'Pretty straightforward, copies the information from the controls in the CreateUserWizard into the newly created user's profile.
+    'Notice that it fires on CreatedUser, rather than CreatingUser. You can't edit the profile information until after the 
+    'user is in the database.
+
     Protected Sub CreateUserWizard_CreatedUser(sender As Object, e As System.EventArgs) Handles CreateUserWizard.CreatedUser
         Dim UserTextbox As TextBox = CType(CreateUserWizard.CreateUserStep.ContentTemplateContainer.FindControl("UserName"), TextBox)
         Dim LibraryNameTextbox As TextBox = CType(CreateUserWizard.CreateUserStep.ContentTemplateContainer.FindControl("LibraryNameTextbox"), TextBox)

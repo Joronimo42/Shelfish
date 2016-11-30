@@ -4,18 +4,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
-    
-    <asp:Label ID="TitleLabel" runat="server" Font-Size="X-Large" 
-        Text="Edit Account" Font-Bold="True"></asp:Label>
-    
+    <asp:Label ID="TitleLabel" runat="server" Font-Size="X-Large" Text="Edit Account"
+        Font-Bold="True"></asp:Label>
     <br />
-    <asp:Label ID="SavedLabel" runat="server" Font-Bold="True" Font-Size="Large" 
-        Text="Profile Saved." Visible="False"></asp:Label>
+    <asp:Label ID="SavedLabel" runat="server" Font-Bold="True" Font-Size="Large" Text="Profile Saved."
+        Visible="False"></asp:Label>
     <br />
     <table>
         <tr>
             <td align="right" class="style1">
-                Library Name:</td>
+                Library Name:
+            </td>
             <td>
                 <asp:TextBox ID="LibraryNameTextbox" runat="server" Width="150px"></asp:TextBox>
             </td>
@@ -86,13 +85,16 @@
         </tr>
         <tr>
             <td align="right" class="style1">
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
         </tr>
         <tr>
             <td align="right" class="style1">
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td>
                 <asp:Button ID="SaveButton" runat="server" Text="Save" />
             </td>

@@ -12,7 +12,8 @@ Partial Class Library_ViewPatrons
         ViewState("UserName") = GridView1.SelectedRow.Cells.Item(2).Text
         Dim dview As Data.DataView
         dview = CType(CheckoutDataSource.Select(DataSourceSelectArguments.Empty), Data.DataView)
-        If dview.Table.Rows.Count < 1 Then
+        If dview.Table.Rows.Count < 1 Then 'this checks if the patron has any items checked out
+            'so that there will be no database conflicts
             ViewState("LibraryCard") = GridView1.SelectedDataKey.Item("LibraryCard")
 
             PatronDataSource.Delete()
@@ -30,6 +31,7 @@ Partial Class Library_ViewPatrons
 
     Protected Sub PatronDataSource_Deleted(sender As Object, e As System.Web.UI.WebControls.SqlDataSourceStatusEventArgs) Handles PatronDataSource.Deleted
         Membership.DeleteUser(ViewState("UserName"))
+
     End Sub
 
     Protected Sub PatronDataSource_Deleting(sender As Object, e As System.Web.UI.WebControls.SqlDataSourceCommandEventArgs) Handles PatronDataSource.Deleting

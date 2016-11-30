@@ -1,8 +1,7 @@
 ﻿
 Partial Class Library_AddPatron
     Inherits System.Web.UI.Page
-    Dim PatronID As Guid
-    Dim LibraryCard As String
+
 
 
     Protected Sub CreateUserWizard_CreatedUser(sender As Object, e As System.EventArgs) Handles CreateUserWizard.CreatedUser
@@ -15,7 +14,7 @@ Partial Class Library_AddPatron
         Dim ZipTextBox As TextBox = CType(CreateUserWizard.CreateUserStep.ContentTemplateContainer.FindControl("ZipTextbox"), TextBox)
         Dim PhoneTextBox As TextBox = CType(CreateUserWizard.CreateUserStep.ContentTemplateContainer.FindControl("PhoneTextbox"), TextBox)
 
-        PatronID = Membership.GetUser(UserTextbox.Text).ProviderUserKey
+        ViewState("PatronID") = Membership.GetUser(UserTextbox.Text).ProviderUserKey
 
         Dim user As ProfileCommon = Profile.GetProfile(UserTextbox.Text)
 
@@ -27,19 +26,20 @@ Partial Class Library_AddPatron
         user.Zip = ZipTextBox.Text
         user.Phone = PhoneTextBox.Text
 
+        'I never actually access these two anywhere, but it's good to have them, just in case. 
         user.IsLibrary = False
         user.LibraryID = Membership.GetUser.ProviderUserKey.ToString
 
 
         user.Save()
 
-        Roles.AddUserToRole(user.UserName, "Patron")
+        Roles.AddUserToRole(user.UserName, "Patron") 'super important, adds the newly created patron to the Patron security level
 
         LinkLibraryPatronDataSource.Insert()
 
         Dim cardNum As Label
         cardNum = CType(CreateUserWizard.CompleteStep.ContentTemplateContainer.FindControl("LibraryCardLabel"), Label)
-        cardNum.Text = LibraryCard
+        cardNum.Text = ViewState("LibraryCard")
 
 
     End Sub
@@ -47,12 +47,12 @@ Partial Class Library_AddPatron
     Protected Sub LinkLibraryPatronDataSource_Inserted(sender As Object, e As System.Web.UI.WebControls.SqlDataSourceStatusEventArgs) Handles LinkLibraryPatronDataSource.Inserted
         Dim command As Data.Common.DbCommand
         command = e.Command
-
-        LibraryCard = command.Parameters("@PK").Value.ToString
+        'This retrieves the newly created primary key from the table, which happens to be the Library Card number. 
+        ViewState("LibraryCard") = command.Parameters("@PK").Value.ToString
     End Sub
 
     Protected Sub LinkLibraryPatronDataSource_Inserting(sender As Object, e As System.Web.UI.WebControls.SqlDataSourceCommandEventArgs) Handles LinkLibraryPatronDataSource.Inserting
         e.Command.Parameters("@LibraryID").Value = Membership.GetUser.ProviderUserKey
-        e.Command.Parameters("@PatronID").Value = PatronID
+        e.Command.Parameters("@PatronID").Value = ViewState("PatronID")
     End Sub
 End Class

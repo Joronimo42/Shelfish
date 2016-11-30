@@ -15,12 +15,14 @@
         <table>
         <tr>
         <td>
-            <asp:HyperLink ID="UserDocHL" runat="server">User Documentation</asp:HyperLink>
+            <asp:HyperLink ID="UserDocHL" runat="server" 
+                NavigateUrl="~/Documentation/User/TableOfContents.aspx">User Documentation</asp:HyperLink>
         </td>
         </tr>
         <tr>
         <td>
-            <asp:HyperLink ID="TechDocHL" runat="server">Technical Documentation</asp:HyperLink>
+            <asp:HyperLink ID="TechDocHL" runat="server" 
+                NavigateUrl="~/Documentation/Technical/Technical Documentation.zip">Technical Documentation</asp:HyperLink>
         </td>
         </tr>
         </table>

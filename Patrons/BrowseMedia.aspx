@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.master" AutoEventWireup="false" CodeFile="BrowseMedia.aspx.vb" Inherits="Patrons_BrowseMedia" %>
+﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.master" AutoEventWireup="false"
+    CodeFile="BrowseMedia.aspx.vb" Inherits="Patrons_BrowseMedia" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
     <style type="text/css">
         .style1
         {
@@ -8,13 +9,10 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <asp:SqlDataSource ID="MediaDataSource" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:ApplicationServices %>" 
-        DeleteCommand="DELETE FROM [Media] WHERE [MediaID] = @MediaID" 
-        InsertCommand="INSERT INTO [Media] ([ISBN], [FormatID], [Title], [Description]) VALUES (@ISBN, @FormatID, @Title, @Description)" 
-        SelectCommand="SELECT Media.MediaID, Media.ISBN, Media.FormatID, Media.Title, Media.Description, Formats.Name FROM Media INNER JOIN Formats ON Media.FormatID = Formats.FormatID INNER JOIN LinkLibraryMedia ON Media.MediaID = LinkLibraryMedia.MediaID WHERE (LinkLibraryMedia.LibraryID &lt;&gt; @LibraryID)" 
-        
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
+    <asp:SqlDataSource ID="MediaDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ApplicationServices %>"
+        DeleteCommand="DELETE FROM [Media] WHERE [MediaID] = @MediaID" InsertCommand="INSERT INTO [Media] ([ISBN], [FormatID], [Title], [Description]) VALUES (@ISBN, @FormatID, @Title, @Description)"
+        SelectCommand="SELECT Media.MediaID, Media.ISBN, Media.FormatID, Media.Title, Media.Description, Formats.Name FROM Media INNER JOIN Formats ON Media.FormatID = Formats.FormatID INNER JOIN LinkLibraryMedia ON Media.MediaID = LinkLibraryMedia.MediaID WHERE (LinkLibraryMedia.LibraryID &lt;&gt; @LibraryID)"
         UpdateCommand="UPDATE [Media] SET [ISBN] = @ISBN, [FormatID] = @FormatID, [Title] = @Title, [Description] = @Description WHERE [MediaID] = @MediaID">
         <DeleteParameters>
             <asp:Parameter Name="MediaID" Type="Int32" />
@@ -36,34 +34,27 @@
             <asp:Parameter Name="MediaID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    
-    <asp:SqlDataSource ID="LinkLibraryPatronDataSource" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:ApplicationServices %>" 
-        
+    <asp:SqlDataSource ID="LinkLibraryPatronDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ApplicationServices %>"
         SelectCommand="SELECT LibraryID FROM LinkLibraryPatron WHERE (PatronID = @PatronID)">
         <SelectParameters>
             <asp:Parameter Name="PatronID" />
         </SelectParameters>
     </asp:SqlDataSource>
-    
-    <asp:Label ID="TitleLabel" runat="server" Font-Size="X-Large" 
-        Text="Browse Media From Other Libraries" Font-Bold="True"></asp:Label>
-    
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
-        AllowSorting="True" AutoGenerateColumns="False"  
-        CellPadding="4" ForeColor="#333333" 
-        GridLines="None" DataKeyNames="MediaID">
+    <asp:Label ID="TitleLabel" runat="server" Font-Size="X-Large" Text="Browse Media From Other Libraries"
+        Font-Bold="True"></asp:Label>
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
+        AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"
+        DataKeyNames="MediaID">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
-            <asp:BoundField DataField="MediaID" HeaderText="MediaID" InsertVisible="False" 
-                ReadOnly="True" SortExpression="MediaID" />
+            <asp:BoundField DataField="MediaID" HeaderText="MediaID" InsertVisible="False" ReadOnly="True"
+                SortExpression="MediaID" />
             <asp:BoundField DataField="ISBN" HeaderText="ISBN" SortExpression="ISBN" />
-            <asp:BoundField DataField="FormatID" HeaderText="FormatID" 
-                SortExpression="FormatID" Visible="False" />
+            <asp:BoundField DataField="FormatID" HeaderText="FormatID" SortExpression="FormatID"
+                Visible="False" />
             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-            <asp:BoundField DataField="Description" HeaderText="Description" 
-                SortExpression="Description" />
+            <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
             <asp:BoundField DataField="Name" HeaderText="Format" SortExpression="Name" />
         </Columns>
         <EditRowStyle BackColor="#7C6F57" />
@@ -78,11 +69,11 @@
         <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
     <table style="width: 298px">
-    <tr>
-    <td><asp:Button ID="RequestButton" runat="server" Text="Request" Visible="False" /></td>
-    </tr>
+        <tr>
+            <td>
+                <asp:Button ID="RequestButton" runat="server" Text="Request" Visible="False" />
+            </td>
+        </tr>
     </table>
-    
     <br />
-
 </asp:Content>

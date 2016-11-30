@@ -2,7 +2,8 @@
 Partial Class Library_EditPatronAccount
     Inherits System.Web.UI.Page
 
-
+    'same basic principle of the EditAccount page, can't access profile information via the 
+    'built in ProfileCommon class, have to use GetPropertyValue and SetPropertyValue
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
         ViewState("LibraryCard") = Request.QueryString("LibraryCard")
         CardNumberLabel.Text = ViewState("LibraryCard")

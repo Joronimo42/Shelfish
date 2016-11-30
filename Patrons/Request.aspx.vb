@@ -2,6 +2,12 @@
 Partial Class Patrons_Request
     Inherits System.Web.UI.Page
 
+
+    'This page is really just a results page that does all the requesting in the background.
+    'It checks to make sure that the patron has not already requested the media, then
+    'adds the request to the database, and displays where the media is coming from.
+    'It requests the media from the first library to show up on the list, because in most cases, 
+    'that will be sufficent. 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
         ViewState("MediaID") = Request.QueryString("MediaID")
         Dim dview As Data.DataView

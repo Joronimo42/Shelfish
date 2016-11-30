@@ -12,6 +12,9 @@ Partial Class Library_ManageRequests
     End Sub
 
     Protected Sub UpdateReportViewer()
+        'You'll see me do this a lot, this DataView method of retrieving information. Out of all of 
+        'the methods I tried, this was the most reliable way of getting specific information from
+        'the results of a query. 
         Dim dview As Data.DataView
         dview = CType(RequestDataSource.Select(DataSourceSelectArguments.Empty), Data.DataView)
         Dim LibraryFromProfile As ProfileCommon
@@ -24,7 +27,10 @@ Partial Class Library_ManageRequests
 
 
         Else
-
+            'One difficulty with reports and profiles is that profile information is inaccessible through
+            'report datasets. All retrieval of profile information has to be done outside of the report,
+            'then passed in the form of a parameter. This means that this whole big chunk of code has to be processed
+            'in order to access the profile information. 
 
             LibraryFromProfile = Profile.GetProfile(Membership.GetUser(dview.Table.Rows.Item(RequestDDL.SelectedIndex).Item("LibraryFromID")).UserName)
             LibraryToProfile = Profile.GetProfile(Membership.GetUser(dview.Table.Rows.Item(RequestDDL.SelectedIndex).Item("LibraryToID")).UserName)

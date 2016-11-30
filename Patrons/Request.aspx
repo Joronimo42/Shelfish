@@ -1,20 +1,18 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.master" AutoEventWireup="false" CodeFile="Request.aspx.vb" Inherits="Patrons_Request" %>
+﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.master" AutoEventWireup="false"
+    CodeFile="Request.aspx.vb" Inherits="Patrons_Request" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <asp:SqlDataSource ID="LinkLibraryPatronDataSource" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:ApplicationServices %>" 
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
+    <asp:SqlDataSource ID="LinkLibraryPatronDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ApplicationServices %>"
         SelectCommand="SELECT LibraryID FROM LinkLibraryPatron WHERE (PatronID = @PatronID)">
         <SelectParameters>
             <asp:Parameter DbType="Guid" Name="PatronID" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="RequestDataSource" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:ApplicationServices %>" 
-        DeleteCommand="DELETE FROM [Requests] WHERE [RequestID] = @RequestID" 
-        InsertCommand="INSERT INTO [Requests] ([PatronID], [LibraryFromID], [LibraryToID], [MediaID]) VALUES (@PatronID, @LibraryFromID, @LibraryToID, @MediaID)" 
-        SelectCommand="SELECT RequestID FROM Requests WHERE (PatronID = @PatronID) AND (MediaID = @MediaID)" 
+    <asp:SqlDataSource ID="RequestDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ApplicationServices %>"
+        DeleteCommand="DELETE FROM [Requests] WHERE [RequestID] = @RequestID" InsertCommand="INSERT INTO [Requests] ([PatronID], [LibraryFromID], [LibraryToID], [MediaID]) VALUES (@PatronID, @LibraryFromID, @LibraryToID, @MediaID)"
+        SelectCommand="SELECT RequestID FROM Requests WHERE (PatronID = @PatronID) AND (MediaID = @MediaID)"
         UpdateCommand="UPDATE [Requests] SET [PatronID] = @PatronID, [LibraryFromID] = @LibraryFromID, [LibraryToID] = @LibraryToID, [MediaID] = @MediaID WHERE [RequestID] = @RequestID">
         <DeleteParameters>
             <asp:Parameter Name="RequestID" Type="Int32" />
@@ -39,11 +37,10 @@
     </asp:SqlDataSource>
     <asp:Label ID="RequestLabel" runat="server" Text="RequestLabel"></asp:Label>
     <br />
-    <asp:SqlDataSource ID="LinkLibraryMediaDataSource" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:ApplicationServices %>" 
-        DeleteCommand="DELETE FROM [LinkLibraryMedia] WHERE [LibraryMediaID] = @LibraryMediaID" 
-        InsertCommand="INSERT INTO [LinkLibraryMedia] ([LibraryID], [MediaID], [QtyOwned], [QtyAvailable]) VALUES (@LibraryID, @MediaID, @QtyOwned, @QtyAvailable)" 
-        SelectCommand="SELECT LibraryID FROM LinkLibraryMedia WHERE (MediaID = @MediaID)" 
+    <asp:SqlDataSource ID="LinkLibraryMediaDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ApplicationServices %>"
+        DeleteCommand="DELETE FROM [LinkLibraryMedia] WHERE [LibraryMediaID] = @LibraryMediaID"
+        InsertCommand="INSERT INTO [LinkLibraryMedia] ([LibraryID], [MediaID], [QtyOwned], [QtyAvailable]) VALUES (@LibraryID, @MediaID, @QtyOwned, @QtyAvailable)"
+        SelectCommand="SELECT LibraryID FROM LinkLibraryMedia WHERE (MediaID = @MediaID)"
         UpdateCommand="UPDATE [LinkLibraryMedia] SET [LibraryID] = @LibraryID, [MediaID] = @MediaID, [QtyOwned] = @QtyOwned, [QtyAvailable] = @QtyAvailable WHERE [LibraryMediaID] = @LibraryMediaID">
         <DeleteParameters>
             <asp:Parameter Name="LibraryMediaID" Type="Int32" />
@@ -66,4 +63,3 @@
         </UpdateParameters>
     </asp:SqlDataSource>
 </asp:Content>
-

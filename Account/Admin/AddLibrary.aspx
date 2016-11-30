@@ -15,8 +15,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
     <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Register Library"></asp:Label>
-    <asp:CreateUserWizard ID="CreateUserWizard" runat="server" Width="444px" 
-        LoginCreatedUser="False">
+    <asp:CreateUserWizard ID="CreateUserWizard" runat="server" Width="444px" LoginCreatedUser="False">
         <WizardSteps>
             <asp:CreateUserWizardStep runat="server">
                 <ContentTemplate>
@@ -33,8 +32,8 @@
                             <td>
                                 <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName"
-                                    ErrorMessage="User Name is required." ToolTip="User Name is required." 
-                                    ValidationGroup="CreateUserWizard" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                    ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="CreateUserWizard"
+                                    ForeColor="Red">*</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -44,8 +43,8 @@
                             <td>
                                 <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password"
-                                    ErrorMessage="Password is required." ToolTip="Password is required." 
-                                    ValidationGroup="CreateUserWizard" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                    ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="CreateUserWizard"
+                                    ForeColor="Red">*</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -66,8 +65,8 @@
                             <td>
                                 <asp:TextBox ID="Email" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email"
-                                    ErrorMessage="E-mail is required." ToolTip="E-mail is required." 
-                                    ValidationGroup="CreateUserWizard" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                    ErrorMessage="E-mail is required." ToolTip="E-mail is required." ValidationGroup="CreateUserWizard"
+                                    ForeColor="Red">*</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -102,12 +101,12 @@
                         </tr>
                         <tr>
                             <td align="right" class="style2">
-                                Library Name:</td>
+                                Library Name:
+                            </td>
                             <td>
                                 <asp:TextBox ID="LibraryNameTextbox" runat="server" Width="150px"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="LibraryNameValidator" runat="server" 
-                                    ControlToValidate="LibraryNameTextbox" ErrorMessage="Library Name is required." 
-                                    ForeColor="Red" ToolTip="Library Name is required." 
+                                <asp:RequiredFieldValidator ID="LibraryNameValidator" runat="server" ControlToValidate="LibraryNameTextbox"
+                                    ErrorMessage="Library Name is required." ForeColor="Red" ToolTip="Library Name is required."
                                     ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                             </td>
                         </tr>
@@ -118,8 +117,8 @@
                             <td>
                                 <asp:TextBox ID="AddressTextbox" runat="server" Width="150px"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="AddressRequired" runat="server" ControlToValidate="AddressTextbox"
-                                    ErrorMessage="Address is required." ToolTip="Address is required." 
-                                    ValidationGroup="CreateUserWizard" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                    ErrorMessage="Address is required." ToolTip="Address is required." ValidationGroup="CreateUserWizard"
+                                    ForeColor="Red">*</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -129,8 +128,8 @@
                             <td>
                                 <asp:TextBox ID="CityTextbox" runat="server" Width="150px"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="CityRequired" runat="server" ControlToValidate="CityTextbox"
-                                    ErrorMessage="City is required." ToolTip="City is required." 
-                                    ValidationGroup="CreateUserWizard" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                    ErrorMessage="City is required." ToolTip="City is required." ValidationGroup="CreateUserWizard"
+                                    ForeColor="Red">*</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -140,8 +139,8 @@
                             <td>
                                 <asp:TextBox ID="StateTextbox" runat="server" Width="150px"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="StateRequired" runat="server" ControlToValidate="StateTextbox"
-                                    ErrorMessage="State is required." ToolTip="State is required." 
-                                    ValidationGroup="CreateUserWizard" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                    ErrorMessage="State is required." ToolTip="State is required." ValidationGroup="CreateUserWizard"
+                                    ForeColor="Red">*</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -151,8 +150,8 @@
                             <td>
                                 <asp:TextBox ID="CountryTextbox" runat="server" Width="150px"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="CountryRequired" runat="server" ControlToValidate="CountryTextbox"
-                                    ErrorMessage="Country is required." ToolTip="Country is required." 
-                                    ValidationGroup="CreateUserWizard" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                    ErrorMessage="Country is required." ToolTip="Country is required." ValidationGroup="CreateUserWizard"
+                                    ForeColor="Red">*</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -162,8 +161,8 @@
                             <td>
                                 <asp:TextBox ID="ZipTextbox" runat="server" Width="150px"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="ZipRequired" runat="server" ControlToValidate="ZipTextbox"
-                                    ErrorMessage="Zip code is required." ToolTip="Zip code is required." 
-                                    ValidationGroup="CreateUserWizard" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                    ErrorMessage="Zip code is required." ToolTip="Zip code is required." ValidationGroup="CreateUserWizard"
+                                    ForeColor="Red">*</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -192,8 +191,8 @@
                             <td>
                                 <asp:TextBox ID="WebsiteTextbox" runat="server" Width="150px" TextMode="Url"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="WebsiteRequired" runat="server" ControlToValidate="WebsiteTextbox"
-                                    ErrorMessage="Website is required." ToolTip="Website is required." 
-                                    ValidationGroup="CreateUserWizard" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                    ErrorMessage="Website is required." ToolTip="Website is required." ValidationGroup="CreateUserWizard"
+                                    ForeColor="Red">*</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>

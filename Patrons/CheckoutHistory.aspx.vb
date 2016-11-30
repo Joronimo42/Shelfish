@@ -6,6 +6,8 @@ Partial Class Library_CheckoutResults
 
         If Not Page.IsPostBack Then
             ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WebForms.ReportDataSource("CheckoutByCheckoutID", CheckoutByPatronID.Select()))
+
+            'incredibly important, this has to be done if you want subreports to ever work in ASP.NET
             AddHandler ReportViewer1.LocalReport.SubreportProcessing, AddressOf Me.SubreportProcessingEventHandler
         End If
 
